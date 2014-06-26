@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app="myApp">
+<form name="myForm" data-ng-submit="onSubmit($scope)">
+    <h1>Weight validation</h1>
+    <div class="errors">
+        <div class="error" ng-show="myForm.weight.$error.weightRequired && !myForm.weight.$pristine">required</div>
+        <div class="error" ng-show="myForm.weight.$error.weightisValid && !myForm.weight.$pristine">invalid</div>
+        <div class="error" ng-show="myForm.weight.$error.weightMin && !myForm.weight.$pristine">min</div>
+        <div class="error" ng-show="myForm.weight.$error.weightMax && !myForm.weight.$pristine">max</div>
+    </div>
+    <div class="errors">
+        <p>myForm.stones.$valid: {{myForm.stones.$valid}}</p>
+        <p>myForm.pounds.$valid: {{myForm.pounds.$valid}}</p>
+        <p>myForm.stones.$error: {{myForm.stones.$error}}</p>
+        <p>myForm.pounds.$error: {{myForm.pounds.$error}}</p>
+    </div>
+    <p ng-show="(myForm.stones.$invalid || myForm.pounds.$invalid)">I am invalid</p>
+    <div data-jm-validation-group="validateWeight" data-scope="{'min': '10', 'max': '20'}">
+        <input name="stones" type="number" min="10" max="20" data-ng-model="stones" required="required" data-jm-child-field=""/>
+        <input name="pounds" type="number" min="0" max="14" data-ng-model="pounds" required="required" data-jm-child-field=""/>
+    </div>
+    <hr/>
+    <h1>Height validation</h1>
+    <div class="errors">
+        <p>myForm.feet.$valid: {{myForm.feet.$valid}}</p>
+        <p>myForm.inches.$valid: {{myForm.inches.$valid}}</p>
+        <p>myForm.feet.$error: {{myForm.feet.$error}}</p>
+        <p>myForm.inches.$error: {{myForm.inches.$error}}</p>
+    </div>
+    <p ng-show="(myForm.feet.$invalid || myForm.inches.$invalid)">I am invalid</p>
+    <div data-jm-validation-group="validateHeight" data-scope="{'min': '2', 'max': '8'}">
+        <input name="feet" type="number" min="2" max="8" data-ng-model="feet" required="required" data-jm-child-field=""/>
+        <input name="inches" type="number" min="0" max="12" data-ng-model="inches" required="required" data-jm-child-field=""/>
+    </div>
+    <hr/>
+    <h1>Date validation</h1>
+    <div class="errors">
+        <p>myForm.day.$valid: {{myForm.day.$valid}}</p>
+        <p>myForm.month.$valid: {{myForm.month.$valid}}</p>
+        <p>myForm.year.$valid: {{myForm.year.$valid}}</p>
+        <p>myForm.day.$error: {{myForm.day.$error}}</p>
+        <p>myForm.month.$error: {{myForm.month.$error}}</p>
+        <p>myForm.year.$error: {{myForm.year.$error}}</p>
+    </div>
+    <p ng-show="(myForm.day.$invalid || myForm.month.$invalid || myForm.year.$invalid)">I am invalid</p>
+    <div data-jm-validation-group="validateDate" data-scope="{'min': '12/03/1987', 'max': '12/03/2014'}">
+        <input name="day" type="number" min="0" max="31" data-ng-model="day" required="required" data-jm-child-field=""/>
+        <input name="month" type="number" min="0" max="12" data-ng-model="month" required="required" data-jm-child-field=""/>
+        <input name="year" type="number" min="1900" max="2020" data-ng-model="year" required="required" data-jm-child-field=""/>
+    </div>
+</form>
+
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/services/validatorService.js"></script>
+<script type="text/javascript" src="app/directives/jmValidationGroup.js"></script>
+<script type="text/javascript" src="app/directives/jmChildField.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "angualarjs-group-validation",
+  "version": "0.0.1",
+  "homepage": "https://github.com/julienmachon/angularjs-group-validation",
+  "authors": [
+    "Julien Machon <julienmachon@gmail.com>"
+  ],
+  "description": "One validation rule for multiple fields",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.15"
+  }
+}
