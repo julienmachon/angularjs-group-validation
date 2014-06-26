@@ -30,3 +30,7 @@ Sort code
 ```
 
 //TODO insert diagram
+
+## Try it
+
+http://jsfiddle.net/julienmachon/y3k4m/
