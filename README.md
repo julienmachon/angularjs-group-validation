@@ -9,20 +9,14 @@ The classic one is with imperial units (I hate them, they make my life so hard).
 
 I need to validate each individual inputs and also combined them and and check the result. For example, let's say I want to accept a result between 2 feet and 8 feet. Here is a result table of what I expect:
 
-| Feet | Inches | Valid? | Reason
------------------------------------------------------------------------
-| 2    | 3      | true   | valid feet, valid inches, under 8 and over 2
------------------------------------------------------------------------
-| 2    | 12     | true   | valid feet, valid inches, under 8 and over 2
------------------------------------------------------------------------
-| 2    | 20     | false  | invalid inches (max 12)
------------------------------------------------------------------------
-| 8    | 10     | false  | over 8
------------------------------------------------------------------------
-| ee   | 10     | false  | invalid feet
------------------------------------------------------------------------
-| 7    | 12     | true   | valid feet, valid inches, under 8 and over 2
------------------------------------------------------------------------
+Feet | Inches | Valid? | Reason
+--- | --- | --- | ---
+2 | 3 | true | valid feet, valid inches, under 8 and over 2
+2 | 12 | true | valid feet, valid inches, under 8 and over 2
+2 | 20 | false | invalid inches (max 12)
+8 | 10 | false | over 8
+ee | 10 | false | invalid feet
+7 | 12 | true | valid feet, valid inches, under 8 and over 2
 
 Using the basic angular validation, it is easy to validate Feet and Inches. 
 
