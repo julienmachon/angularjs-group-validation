@@ -8,7 +8,7 @@ myApp.directive('jmValidationGroup', [function () {
         require: '?ngModel',
         controller: ['$scope', 'Validator', function ($scope, Validator) {
             //init scope with object
-            angular.forEach(eval('('+$scope.obj+')'), function(val, key) {
+            angular.forEach($scope.$eval('('+$scope.obj+')'), function(val, key) {
                 $scope[key] = val;
             });
             //Array of inputs with a ref on their model controller
@@ -21,7 +21,7 @@ myApp.directive('jmValidationGroup', [function () {
                     scope: scope,
                     controller: ctrl
                 });
-                //runs everytime model is updated
+                //runs every time model is updated
                 ctrl.$parsers.push(function (value) {
                     //Calls validator from service
                     Validator[$scope.validate]($scope, inputs);
