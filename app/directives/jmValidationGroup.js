@@ -13,7 +13,7 @@ myApp.directive('jmValidationGroup', [function () {
             });
             //Array of inputs with a ref on their model controller
             var inputs = [];
-
+            //Expose function for child
             this.addInput = function (scope, ctrl) {
                 //add reference to inputs object
                 inputs.push({
@@ -24,7 +24,7 @@ myApp.directive('jmValidationGroup', [function () {
                 //runs every time model is updated
                 ctrl.$parsers.push(function (value) {
                     //Calls validator from service
-                    Validator[$scope.validate]($scope, inputs);
+                    $scope.valid = Validator[$scope.validate]($scope, inputs);
                     return value;
                 });
                 //runs when init
